@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Currency Converter</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                background-image: url(https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg);
+                background-repeat:no-repeat;
+                background-size:cover;
+            }
+            h1{
+                text-align: center;
+                color: rgb(249, 249, 249);
+                margin-top: 80px;
+                margin-left: 358px ;
+                border-style: solid;
+                width: 600px;
+                border-radius: 10px;
+
+            }
+            fieldset{
+                width: 50%;
+                margin-left: 440px;
+                border: none;
+            }
+            select{
+                height: 30px;
+                width: 150px;
+                text-align: center;
+                color: rgb(16, 16, 16);
+                font-weight: bolder;
+            }
+            input{
+                height: 27px;
+                width: 143px;
+                color:rgb(11, 10, 10);
+                background-color:white;
+                text-align: center;
+                font-weight: bold;
+            }
+            label{
+                color: white;
+                margin-left: 12px;
+                margin-right: 12px;
+                font-weight: bold;
+            }
+            button{
+                border: none;
+                background-color: rgb(128, 19, 0);
+                color: white;
+                width: 150px;
+                height: 28px;
+                margin-left: 150px;
+                margin-top: 12px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+            button:hover{
+                box-shadow: 0 0 5px white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>C U R R R E N C Y - C O N V E R T E R</h1>
+        <fieldset>
+         <label for="from">From</label>
+            <select id="s1" onchange="change()">
+                <option value="usd" id="in1">U S D</option>
+                <option value="inr" id="in2">I N R</option>
+            </select>
+            <label for="to">to</label>
+            <select id="s2">
+                <option value="inr1" id="in4">I N R</option>
+                <option value="usd1" id="in3">U S D</option>
+                
+            </select><br><br>
+            <label for="to">From</label>
+            <input type="text" id="input">
+            <label for="to">to</label>
+            <input type="text" id="output"><br><br>
+            <button id="btn" onclick="calc()">CONVERT</button>
+        </fieldset>
+        <script>           
+            function change(){
+
+                let x =document.getElementById("s1").value;
+
+                if(x=="usd"){
+                    document.getElementById("s2").value="inr1"; 
+                }
+                else if(x=="inr"){
+                    document.getElementById("s2").value="usd1";
+                }
+            }
+              
+            function calc(){
+
+                let x =document.getElementById("s1").value;
+
+                let input = Number(document.getElementById("input").value);
+                if(x=="usd"){
+                    input=input*82.77;
+                    input.toFixed(2);
+                    document.getElementById("output").value=input; 
+                    document.getElementById("output").disabled="disabled";
+                }
+                else if(x=="inr"){
+                    input=input/82.77;
+                    input.toFixed(2);
+                    document.getElementById("output").value=input;
+                    document.getElementById("output").disabled="disabled";
+                }
+            }
+        </script>
+    </body>
+</html>
